@@ -1,0 +1,18 @@
+{
+  "characters": [
+    {
+      "name": "Juan",
+      "gender": "Masculino",
+      "status": "vivo",
+      "planet": "tierra",
+      "id": 1
+    },
+    {
+      "name": "Gabriel",
+      "gender": "Masculino",
+      "status": "vivo",
+      "planet": "tierra",
+      "id": 2
+    }
+  ]
+}
