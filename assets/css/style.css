@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+:root {
+  --green:rgb(5, 167, 14); }
+
+body {
+  width: 100vw;
+  height: 100vh; }
+  body .container {
+    display: grid;
+    grid-template-areas: "head head head head" "aside  figure  figure figure" "aside  figure figure figure" "aside  figure figure figure" "footer footer footer footer";
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(8, 1fr); }
+    body .container .navbar {
+      grid-area: head;
+      background-color: var(--green);
+      height: 65px; }
+    body .container aside {
+      padding: 0px 0px 0px 20px;
+      grid-area: aside;
+      grid-row: span 6 / span 6;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center; }
+      body .container aside fieldset {
+        height: 50%;
+        display: flex;
+        width: 95%;
+        gap: 10px;
+        border-radius: 8px;
+        margin: 10px 10px 10px 0; }
+        body .container aside fieldset legend {
+          display: flex;
+          margin: auto; }
+        body .container aside fieldset form {
+          height: auto;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          gap: 10px;
+          padding: 10px; }
+          body .container aside fieldset form input {
+            height: 35px;
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid grey;
+            padding: 10px;
+            font-size: 100%; }
+          body .container aside fieldset form input[type="submit"] {
+            width: 60%;
+            align-self: center; }
+    body .container .figure {
+      grid-area: figure;
+      grid-row: span 6/ span 6;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid grey;
+      border-radius: 8px;
+      margin: 0 20px 0 0;
+      padding: 0 0 20px 20px; }
+      body .container .figure h2 {
+        width: 100%;
+        text-align: center; }
+      body .container .figure ul {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px; }
+        body .container .figure ul li {
+          list-style: none;
+          background-color: var(--green);
+          padding: 10px;
+          border-radius: 8px; }
+    body .container .modalContainer {
+      display: none; }
+
+/*# sourceMappingURL=style.css.map */
