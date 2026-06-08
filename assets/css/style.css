@@ -4,7 +4,7 @@
   box-sizing: border-box; }
 
 :root {
-  --green:rgb(5, 167, 14); }
+  --green: rgb(5, 167, 14); }
 
 body {
   width: 100vw;
@@ -57,7 +57,7 @@ body {
             align-self: center; }
     body .container .figure {
       grid-area: figure;
-      grid-row: span 6/ span 6;
+      grid-row: span 6 / span 6;
       display: flex;
       flex-direction: column;
       border: 1px solid grey;
