@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+:root{
+    --green:rgb(5, 167, 14);
+}
+
 body {
     width: 100vw;
     height: 100vh;
@@ -21,7 +25,7 @@ body {
         grid-template-rows: repeat(8, 1fr);
         .navbar {
             grid-area: head;
-            background-color: rgb(5, 167, 14);
+            background-color: var(--green);
             height: 65px;
         }
         aside {
@@ -33,21 +37,26 @@ body {
             gap: 10px;
             align-items: center;
             fieldset {
-                height: auto;
+                height: 50%;
+                display: flex;
                 width: 95%;
                 gap: 10px;
                 border-radius: 8px;
-                h2 {
-                    height: 20%;
+                margin: 10px 10px 10px 0;
+                legend{
+                    display: flex;
+                    margin: auto;
                 }
-                .ticketForm {
-                    height: 100%;
+                form {
+                    height: auto;
                     display: flex;
                     flex-direction: column;
+                    width: 100%;
                     gap: 10px;
                     padding: 10px;
                     input {
-                        height: 45px;
+                        height: 35px;
+                        width: 100%;
                         border-radius: 8px;
                         border: 1px solid grey;
                         padding: 10px;
@@ -62,13 +71,27 @@ body {
         }
         .figure {
             grid-area: figure;
+            grid-row: span 6/ span 6;
             display: flex;
             flex-direction: column;
             border: 1px solid grey;
+            border-radius: 8px;
+            margin: 0 20px 0 0;
             padding: 0 0 20px 20px;
             h2 {
                 width: 100%;
                 text-align: center;
+            }
+            ul{
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+                li{
+                    list-style: none;
+                    background-color: var(--green);
+                    padding: 10px;
+                    border-radius: 8px;
+                }
             }
         }
         .modalContainer {

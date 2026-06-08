@@ -1,11 +1,23 @@
 <aside>
-    <h2>Create your own character</h2>
+
     <fieldset>
-        <form method="post" class="ticketForm">
+        <legend>Create your own character</legend>
+        <form method="post" class="createForm">
             <input type="text" placeholder="name..." id="name">
             <input type="text" placeholder="gender..." id="gender">
             <input type="text" placeholder="status..." id="status">
             <input type="text" placeholder="planet..." id="planet">
+            <input type="submit">
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>Update your characters</legend>
+        <form method="patch" class="updateForm">
+            <input type="text" placeholder="place here id..." id="id">
+            <input type="text" placeholder="new name..." id="name">
+            <input type="text" placeholder="new gender..." id="gender">
+            <input type="text" placeholder="new status..." id="status">
+            <input type="text" placeholder="new planet..." id="planet">
             <input type="submit">
         </form>
     </fieldset>

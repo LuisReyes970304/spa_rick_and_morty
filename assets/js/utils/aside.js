@@ -1,3 +1,6 @@
+import { deleteCharacter } from "./deleteChar";
+import { getCharacters } from "./figure";
+
 export async function renderAside() {
     try {
         const htmlDoc = "./assets/views/aside.html";
@@ -14,18 +17,19 @@ export async function renderAside() {
 }
 
 export async function postCharacter() {
-    const ticketForm = document.querySelector(".ticketForm");
-    ticketForm.addEventListener("submit", async (e) => {
+    const createForm = document.querySelector(".createForm");
+    createForm.addEventListener("submit", async (e) => {
         e.preventDefault();
-        const name = ticketForm.querySelector("#name").value.trim();
-        const gender = ticketForm.querySelector("#gender").value.trim();
-        const status = ticketForm.querySelector("#status").value.trim();
-        const planet = ticketForm.querySelector("#planet").value.trim();
-        if(name === "" || gender === "" || status === "" || planet === ""){
-            ticketForm.reset();
-            return alert("cannot be Empty")
+        const name = createForm.querySelector("#name").value.trim();
+        const gender = createForm.querySelector("#gender").value.trim();
+        const status = createForm.querySelector("#status").value.trim();
+        const planet = createForm.querySelector("#planet").value.trim();
+        if (name === "" || gender === "" || status === "" || planet === "") {
+            return alert("cannot be Empty");
         }
         try {
+            const figure = document.querySelector(".figure");
+            const ul = figure?.querySelector("ul");
             const url = "http://localhost:3000/characters";
             const response = await fetch(url, {
                 method: "POST",
@@ -37,7 +41,52 @@ export async function postCharacter() {
                     planet: planet,
                 }),
             });
-            ticketForm.reset();
-        } catch (error) {}
+            ul.innerHTML = "";
+            await getCharacters();
+            createForm.reset();
+        } catch (error) {
+            console.error(error);
+        }
+    });
+}
+
+export async function updateCharacter() {
+    const updateForm = document.querySelector(".updateForm");
+    updateForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const id = updateForm.querySelector("#id").value.trim();
+        const name = updateForm.querySelector("#name").value.trim();
+        const gender = updateForm.querySelector("#gender").value.trim();
+        const status = updateForm.querySelector("#status").value.trim();
+        const planet = updateForm.querySelector("#planet").value.trim();
+        if (
+            id === "" ||
+            name === "" ||
+            gender === "" ||
+            status === "" ||
+            planet === ""
+        ) {
+            return alert("cannot be Empty");
+        }
+        try {
+            const figure = document.querySelector(".figure");
+            const ul = figure?.querySelector("ul");
+            const url = `http://localhost:3000/characters/${id}`;
+            const response = await fetch(url, {
+                method: "PATCH",
+                headers: { "content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: name,
+                    gender: gender,
+                    status: status,
+                    planet: planet,
+                }),
+            });
+            ul.innerHTML = "";
+            await getCharacters();
+            updateForm.reset();
+        } catch (error) {
+            console.error(error);
+        }
     });
 }
